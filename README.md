@@ -55,9 +55,35 @@ movie_agent_project/
    ```
    This launches Streamlit at `http://localhost:8501`.
 
+## Data Collections
+
+### Movie
+| Field | Type | Description |
+|---|---|---|
+| `title` | Text | Movie title |
+| `director` | Text | Director name |
+| `overview` | Text (vectorized) | Plot summary — used for semantic search |
+| `release_year` | Int | Year of release |
+| `genre` | Text | Genre (Sci-Fi, Action, Drama, etc.) |
+| `rating` | Number | IMDb-style score (0–10) |
+| `marketing_pitch` | Text | AI-generated pitch, populated by Transformation Agent |
+
+### Review
+| Field | Type | Description |
+|---|---|---|
+| `review_text` | Text (vectorized) | Full review text |
+| `sentiment` | Text | Positive / Negative |
+| `hasMovie` | Cross-reference | Link to the related `Movie` object |
+
+The sample dataset includes **20 movies** and **11 reviews** across genres: Sci-Fi, Action, Drama, Crime, Horror, Fantasy, Animation, and more.
+
 ## Tech Stack
 
 - **Weaviate Cloud** — vector database with `text2vec-openai` embeddings
 - **weaviate-client[agents]** — Query Agent & Transformation Agent
 - **Streamlit** — chat UI
 - **OpenAI (GPT-4o)** — generative search & data enrichment
+
+## Further Reading
+
+See [DOCUMENTATION.md](DOCUMENTATION.md) for a full technical report covering architecture, agent design, sample query flows, and future development ideas.
