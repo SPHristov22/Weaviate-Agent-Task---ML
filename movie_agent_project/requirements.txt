@@ -1,0 +1,4 @@
+weaviate-client[agents]>=4.9.4
+streamlit
+python-dotenv
+pandas
